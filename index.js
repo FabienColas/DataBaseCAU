@@ -52,7 +52,7 @@ app.patch("/api/addProductToOrder:order_id", (req, res, next) => {
 })
 
 app.get('/api/getAllProducts', function (req, res) {
-    db.all(`SELECT type_id, name price FROM Products`, (err, rows) => {
+    db.all(`SELECT type_id, name price FROM Products`, function (err, rows){
         if (err) {
             console.error(err.message);
         } else {
@@ -61,7 +61,6 @@ app.get('/api/getAllProducts', function (req, res) {
                 "data":rows
             })
         }
-        //console.log(row.name + "\t\t" + row.price);
     });
 })
 
@@ -75,26 +74,23 @@ app.get('/api/getAllProductType', function (req, res) {
                 "data":rows
             })
         }
-        //console.log(row.name + "\t\t" + row.price);
     });
 })
 
 
-app.get('/api/createOrder', function (req, res) {
-    db.run(`INSERT INTO Orders (booth_id, confirmed) VALUES ('0', '0')`, (err) => {
+app.post('/api/createOrder', function (req, res) {
+    var data = {
+        booth_id: req.body.name,
+    }
+    db.run(`INSERT INTO Orders (booth_id, confirmed) VALUES (?, '0')`[data.booth_id], function (err, result) {
         if (err) {
             console.error(err.message);
         } else {
-            // get the last insert id
-            console.log(`A row has been inserted with rowid ${this.lastID}`);
-            var id = this.lastID;
-            console.log(id);
             res.json({
                 "message":"success",
-                "data":id
+                "id":this.lastID
             })
         }
-        //console.log(row.name + "\t\t" + row.price);
     });
 })
 

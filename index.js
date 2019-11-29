@@ -1,6 +1,10 @@
 const sqlite3 = require('sqlite3').verbose();
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 // open the database
 let db = new sqlite3.Database('./db', sqlite3.OPEN_READWRITE, (err) => {
@@ -10,7 +14,9 @@ let db = new sqlite3.Database('./db', sqlite3.OPEN_READWRITE, (err) => {
     console.log('Connected to the CAU BURGER database.');
 });
 
-app.get("/api//:id", (req, res, next) => {
+
+// TODO implement user query
+/*app.get("/api//:id", (req, res, next) => {
     var sql = "select * from user where id = ?"
     var params = [req.params.id]
     db.get(sql, params, (err, row) => {
@@ -23,24 +29,19 @@ app.get("/api//:id", (req, res, next) => {
             "data":row
         })
     });
-});
+});*/
 
-app.patch("/api/addProductToOrder:order_id", (req, res, next) => {
+app.post("/api/addProductToOrder", (req, res, next) => {
     var data = {
-        order_id: req.body.name,
+        order_id: req.body.order_id,
         product_id: req.body.product_id,
     }
-    db.run(/*
-        `UPDATE user set 
-           name = COALESCE(?,name), 
-           email = COALESCE(?,email), 
-           password = COALESCE(?,password) 
-           WHERE id = ?`*/
-        'INSERT INTO OrderContent order_id, product_id values (?, ?)',
+    db.run(
+        "INSERT INTO OrderContent (order_id, product_id) values (?, ?)",
         [data.order_id, data.product_id],
         function (err, result) {
             if (err){
-                res.status(400).json({"error": res.message})
+                res.status(400).json({"error": err})
                 return;
             }
             res.json({

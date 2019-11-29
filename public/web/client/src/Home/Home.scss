@@ -1,0 +1,24 @@
+.home {
+	background-color: #E7E7E7;
+	padding:36px 100px 100px 100px;
+	width:100%;
+	color: #515151;
+	.secret {
+		display:none;
+	}
+	.header-container {
+		text-align: center;
+		.h-title {
+			font-size:38px;
+		}
+	}
+	.widgets-container {
+		padding:5px;
+		width: 70%;
+		display:flex;
+		.widget-item {
+			display:block;
+			margin:20px;
+		}
+	}
+}

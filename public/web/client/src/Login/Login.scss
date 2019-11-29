@@ -1,0 +1,130 @@
+
+.App {
+        /* text-align: center; */
+        // background-image: radial-gradient(rgb(180, 110, 255), rgb(145, 82, 250, 0.9), rgb(105, 45, 220, 0.8)) !important;
+        // background-image: linear-gradient(to bottom left ,rgb(180, 110, 220), rgb(70, 30, 170, 1)) !important;
+        
+        padding-top:250px;
+        height: 100vh;
+        // color: RED !important;
+      }
+      
+      .App-header {
+        min-height: 10vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(5px + 2vmin);
+        color: white;
+      }
+      
+      .App-header img {
+        width: 180px;
+      }
+      
+      .App-header p {
+        font-size: 48px;
+        font-weight: bold;
+      }
+      
+      .App-link {
+        color: #61dafb;
+      }
+      
+      #PWD {
+        margin-top:4px;
+      }
+      
+      .Labels {
+        margin:auto;
+        // margin-top:42px;
+        width:600px;
+        text-align: center;
+        color:#424242;
+      
+      }
+      
+      #LoginLabel, #SignupLabel{
+        font-size: 32px;
+        font-weight: 700;
+        width:500px;
+        margin:30px
+      }
+      
+      #LoginLabel:hover{
+        color:#4AAAC2;
+        text-shadow: 2px 2px 4px #7b50d0
+      
+      }
+      #SignupLabel:hover{
+        color:#4AAAC2;
+        text-shadow: 2px 2px 4px #7b50d0
+      }
+      
+      .Connect-Form {
+        display: flex;
+        margin:auto;
+        width:600px;
+        padding-left:20px;
+        padding-right:20px;
+        margin-top:30px;
+      }
+      
+      .Connect-Form label{
+          font-size: 22px !important;
+          color: #323232 !important;
+      }
+      
+      .SignUp, .LogIn {
+        width:600px;
+      }
+      
+      .active {
+        color:rgb(97, 218, 251)
+      }
+      
+      .myform
+      {
+        
+        border-radius: 7px !important;
+        box-shadow: 2px 2px 4px #422b71 !important;
+      }
+      /* .myform:hover{
+        border: -2px solid #4AAAC2 !important;
+      } */
+      
+      .extern-auth 
+      {
+        margin:auto;
+        margin-top:50px;
+        text-align:center;
+      }
+      
+      @keyframes App-logo-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      
+      /* /////////////////// MOBILE*/
+      
+      @media screen and (max-width: 640px)
+      {
+        .Connect-Form{
+          width:80% !important;
+        }
+        .Labels {
+          width: 470px;
+          font-size:30px !important;
+        }
+        #LoginLabel, #SignupLabel
+        {
+          margin:5px;
+          font-size: 25px;
+        }
+      }
+      

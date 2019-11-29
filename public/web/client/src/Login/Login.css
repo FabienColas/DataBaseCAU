@@ -1,0 +1,159 @@
+.App {
+  /* text-align: center; */
+  padding-top: 80px;
+  height: 100vh;
+  background-color: #FBAB7E;
+  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+  background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
+  background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+
+}
+
+.Login-container{
+  margin:auto;
+  padding:80px 60px 10px 60px;
+  /* background-color: #FBCFC0; */
+  /* background-color: rgba(256, 241, 100, 0.2); */
+  /* background-color: rgba(251, 207, 190, 0.4); */
+  width:40%;
+  border-radius:20px;
+  margin-right:37%;
+}
+
+.App-header {
+  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: white;
+}
+
+.App-header img {
+  width: 180px;
+}
+
+.App-header p {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#PWD {
+  margin-top: 4px;
+}
+
+.Labels {
+  margin: auto;
+  width: 600px;
+  text-align: center;
+  color: #474147;
+}
+
+#LoginLabel, #SignupLabel {
+  font-size: 32px;
+  font-weight: 700;
+  width: 500px;
+  margin: 30px;
+}
+
+#LoginLabel:hover {
+  color: #4AAAC2;
+  text-shadow: 2px 2px 4px #7b50d0;
+}
+
+#SignupLabel:hover {
+  color: #4AAAC2;
+  text-shadow: 2px 2px 4px #7b50d0;
+}
+
+.Connect-Form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  width: 600px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 30px;
+}
+
+.Connect-Form label {
+  font-size: 22px !important;
+  color: #323232 !important;
+}
+
+.SignUp, .LogIn {
+  width: 600px;
+}
+
+.active {
+  color: #61dafb;
+  text-decoration: underline;
+}
+
+.myform {
+  border-radius: 7px !important;
+  -webkit-box-shadow: 2px 2px 4px #422b71 !important;
+          box-shadow: 2px 2px 4px #422b71 !important;
+}
+
+/* .myform:hover{
+        border: -2px solid #4AAAC2 !important;
+      } */
+.extern-auth {
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+@-webkit-keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* /////////////////// MOBILE*/
+@media screen and (max-width: 640px) {
+  .Connect-Form {
+    width: 80% !important;
+  }
+  .Labels {
+    width: 470px;
+    font-size: 30px !important;
+  }
+  #LoginLabel, #SignupLabel {
+    margin: 5px;
+    font-size: 25px;
+  }
+}
+/*# sourceMappingURL=Login.css.map */

@@ -1,0 +1,103 @@
+.parent {
+  height:100%;
+}
+
+.start {
+  background-color: white;
+  padding: 30px 100px 100px 100px;
+  width: 100%;
+  height: 100%;
+  color: #515151;
+}
+
+.options {
+  background-color:#1f532f;
+  color: white;
+}
+
+.ui.medium.image {
+  margin: auto;
+}
+
+.zebi2 {
+  margin:auto !important;
+  width: 120px !important;
+}
+
+.born-container {
+  margin-top: 30px;
+  height: 260px;
+  display: flex;
+}
+.born-item {
+  height:100%;
+  width: 200px;
+  border: 3px #1f532f solid;
+  border-radius: 10px;
+  background-color: #1f532f;
+  color: white;
+  padding:30px;
+  margin:10px;
+  cursor: pointer;
+  font-size:26px;
+}
+
+p {
+  margin-top:20px;
+  text-align: center;
+}
+
+.options-container {
+  display:flex;
+  width:50%;
+  margin:auto;
+  margin-top:120px;
+}
+.zebi-box {
+  border: 4px white solid;
+  height:120px;
+  border-radius:10px;
+}
+.options-box {
+  border: 4px white solid;
+  height:120px;
+  border-radius:10px;
+  margin:auto;
+  width:200px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.title {
+  margin-top:36px;
+  color: #1f532f;
+  text-align: center;
+  font-size: 26px;
+}
+
+.bigSize {
+  font-size: 42px;
+}
+
+.button {
+  border: 3px white solid;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  padding:8px;
+}
+
+.go-back {
+  width: 120px;
+  height: 44px;
+  margin:auto;
+  margin-top: 162px;
+  font-size: 24px;
+  font-weight: 700;
+  background-color:white;
+  color:#1f532f;
+}

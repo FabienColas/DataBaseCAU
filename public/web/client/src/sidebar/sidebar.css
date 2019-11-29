@@ -1,0 +1,38 @@
+.sidebar-core {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 900px;
+}
+
+.sidebar-core .sidebar-parent {
+  width: 300px;
+  height: 100%;
+  padding: 0px;
+  background: #fef67d;
+  background: -webkit-gradient(linear, left bottom, left top, from(#fff67d), to(#ffeb86));
+  background: linear-gradient(0deg, #fff67d 0%, #ffeb86 100%);
+  z-index: 3;
+}
+
+.sidebar-core .sidebar-parent .sidebar {
+  text-align: left;
+  padding-top: 0px;
+}
+
+.sidebar-core .sidebar-parent .sidebar .sidebar-menu {
+  width: 100%;
+  color: #616161;
+  font-size: 18px;
+}
+
+.sidebar-core .sidebar-parent .sidebar .sidebar-menu .menu-item {
+  color: #515151;
+  border-color: #fef67d !important;
+  font-size: 22px;
+}
+
+.sidebar-core .sidebar-parent .sidebar .sidebar-menu .active {
+  border-color: #515151 !important;
+}
+/*# sourceMappingURL=sidebar.css.map */

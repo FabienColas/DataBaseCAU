@@ -38,6 +38,7 @@ let db = new sqlite3.Database('./db', sqlite3.OPEN_READWRITE, (err) => {
 
 app.post("/api/createOrder", (req, res, next) => {
     var OrderID;
+    console.log("body:", req.body);
     var data = {
         user: req.body.user,
         booth_id: req.body.booth_id,

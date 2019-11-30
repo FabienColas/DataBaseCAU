@@ -26,8 +26,8 @@ class Command extends Component {
 			method: 'POST',
 			body: JSON.stringify({
 				booth_id: JSON.parse(sessionStorage.getItem("bornId")),
-				items: this.items,
-				totalPrice: this.totalPrice(),
+				products: this.items,
+				total_price: this.totalPrice(),
 				user: null,
 				takeout: JSON.parse(sessionStorage.getItem("takeout")),
 			}),

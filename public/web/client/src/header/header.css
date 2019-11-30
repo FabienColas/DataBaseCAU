@@ -22,15 +22,17 @@
 .header .profile .profile-icon {
   position: relative;
   top: -2px;
+  color: #1f532f !important;
 }
 
 .header .Deco-button {
-  font-size: 18px;
+  font-size: 22px;
+  font-weight:700;
   height: 100%;
   width: 200px;
   border-radius: 0px;
   margin-right: 0px;
-  color: #616161;
+  color: #1f532f !important;
   background-color: #F8F8F8;
 }
 

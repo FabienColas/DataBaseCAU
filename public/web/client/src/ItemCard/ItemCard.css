@@ -1,0 +1,35 @@
+.item-card {
+    display: inline-block;
+    margin: 20px;
+    border: 2px white solid;
+    border-radius: 10px;
+    background-color: white;
+    width: 200px;
+    height:240px;
+    padding:15px;
+    -webkit-box-shadow: 0px 0px 16px -4px rgba(0,0,0,1);
+-moz-box-shadow: 0px 0px 16px -4px rgba(0,0,0,1);
+box-shadow: 0px 0px 16px -4px rgba(0,0,0,1);
+}
+.card-info {
+    display:flex;
+    justify-content: space-between;
+}
+.ci-name {
+    align-self: left;
+}
+.ci-price {
+    font-size:20px;
+    font-weight:700;
+}
+.card-button-add {
+    background-color: #1f532f;
+    color: white;
+    font-weight:700;
+}
+
+.card-button-remove {
+    background-color: #F13434;
+    color: white;
+    font-weight:700;
+}

@@ -1,6 +1,6 @@
 .home {
   background-color: #E7E7E7;
-  padding: 36px 100px 100px 100px;
+  padding: 20px 20px 100px 20px;
   width: 100%;
   color: #515151;
 }
@@ -17,16 +17,22 @@
   font-size: 38px;
 }
 
-.home .widgets-container {
-  padding: 5px;
-  width: 70%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 
-.home .widgets-container .widget-item {
+.home .items-container2 {
   display: block;
   margin: 20px;
+  padding-left:10px;
+}
+
+.spinner-parent {
+  width: 100%;
+  text-align: center;
+  padding-top: 100px !important;
+}
+
+.spinner.huge.loading.icon {
+  color: #1f532f;
+  margin:auto;
+  font-size: 86px;
 }
 /*# sourceMappingURL=Home.css.map */

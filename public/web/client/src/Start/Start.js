@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Start.css"
-import {Image, Header} from "semantic-ui-react"
+import {Image} from "semantic-ui-react"
 
 import logo from '../media/mcdo_logo.png';
 

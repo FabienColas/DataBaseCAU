@@ -1,0 +1,75 @@
+
+.parent-command {
+    padding: 50px;
+    background-color: white;;
+    color: #515151;
+    height:100%;
+}
+
+.command-ticket {
+    margin:100px;
+    text-align: center;
+    font-size:32px;
+    font-weight: 700;
+}
+
+.ticket-number {
+    border: 2px #1f532f solid;
+    background-color: #1f532f;
+    border-radius: 10px;
+    height:200px;
+    width:60%;
+    display:flex;
+    margin:auto;
+    margin-top:32px;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size:78px;
+}
+
+.ticket-next {
+    border: 2px #1f532f solid;
+    background-color: white;
+    border-radius: 10px;
+    height:80px;
+    width:30%;
+    display:flex;
+    margin:auto;
+    margin-top:70px;
+    align-items: center;
+    justify-content: center;
+    color:#1f532f;
+    font-size:38px;
+    cursor: pointer;
+}
+
+.command-container {
+    height: 100%;
+}
+.command-title {
+    font-size:22px;
+    text-align: center;
+    color: #1f532f;
+    font-weight: 700 !important;
+}
+
+.command-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:10px;
+    padding: 0px 20px 0px 20px;
+}
+.command_b {
+    width: 90px;
+    height:44px;
+    border-color:#1f532f;
+}
+
+.totalP {
+    margin-bottom:30px;
+    float:right;
+    font-size:26px;
+    font-weight:600;
+    margin-right:22px;
+}

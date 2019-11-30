@@ -3,23 +3,25 @@ import ReactDOM from 'react-dom';
 import "semantic-ui-css/semantic.min.css"
 
 import Header from "./header/Header"
-import Footer from "./footer/Footer"
-import Sidebar from "./sidebar/Sidebar"
-import Home from "./Home/Home"
-import Login from "./Login/Login"
 import Start from "./Start/Start"
-import Services from "./Services/Services"
+import Home from "./Home/Home"
+import Footer from "./footer/Footer"
+import Login from "./Login/Login"
+import Command from "./Command/Command"
+
 
 
 
 import './index.css';
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import * as serviceWorker from './serviceWorker';
-// import Redirect from 'react-router/Redirect';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import * as serviceWorker from './serviceWorker'
 
 if (!sessionStorage.getItem("user"))
 	sessionStorage.setItem("user", "");
+if (!sessionStorage.getItem("command"))
+	sessionStorage.setItem("command", "[]");
+
 
 const displayInId = (id) => (document.getElementById(id))
 
@@ -28,6 +30,7 @@ ReactDOM.render(
 		<div className="core">
 			<Route exact path="/" component={Start}/>
 			<Route exact path="/login" component={Login}/>
+			<Route exact path="/command" component={Command}/>
 			<Route path="/home" component={Header}/>
 			<Route exact path="/home" component={Home}/>
 			<Route path="/home" component={Footer}/>

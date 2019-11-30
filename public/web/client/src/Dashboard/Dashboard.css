@@ -1,0 +1,37 @@
+.tab-container {
+    padding: 60px;
+    display:inline-block;
+    height:100%;
+}
+
+.order-meta {
+    display:flex;
+    justify-content: space-between;
+}
+.order-parent {
+    border: 6px #1f532f solid;
+    border-radius:10px;
+    font-weight: 500;
+    font-size:16px;
+    min-width: 300px;
+    margin:20px;
+    padding:8px;
+}
+
+.order-products {
+   /* display:flex;  */
+}
+
+.or-products {
+    margin-left:2px;
+    margin-right:2px;
+}
+.order-value {
+    font-weight:700;
+}
+
+.order-button {
+    background-color: #ffc300;
+    color: white;
+    margin-top:5px;
+}

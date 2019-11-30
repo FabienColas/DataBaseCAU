@@ -22,7 +22,25 @@ class Command extends Component {
 	}
 
 	proceed = () => {
-		this.setState({dispTicket: true});
+		fetch('http://localhost:8001/api/createOrder', {
+			method: 'POST',
+			body: JSON.stringify({
+				booth_id: JSON.parse(sessionStorage.getItem("bornId")),
+				items: this.items,
+				totalPrice: this.totalPrice(),
+				user: null,
+				takeout: JSON.parse(sessionStorage.getItem("takeout")),
+			}),
+			headers: {
+			  "Content-type": "application/json; charset=UTF-8"
+			}
+		}).then(response => {
+			console.log("res:",response);
+				return response.json()
+		}).then(json => {
+			console.log('json;',json)
+		})
+		// this.setState({dispTicket: true});
 	}
 
 	totalPrice = () => {
@@ -42,7 +60,8 @@ class Command extends Component {
 		sessionStorage.setItem("command", []);
 		sessionStorage.setItem("bornId", "");
 		sessionStorage.setItem("takeout", "");
-        this.props.history.push("/");
+		this.props.history.push("/");
+		console.log("this.itms:", this.items);
 	}
 
   render() {

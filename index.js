@@ -58,7 +58,7 @@ app.post("/api/addProductToOrder", (req, res, next) => {
 })
 
 app.get('/api/getAllProducts', function (req, res) {
-    db.all(`SELECT p.name, p.price, pt.name as type_name FROM Products as p LEFT JOIN ProductType as pt ON p.type_id = pt.id`, function (err, rows){
+    db.all(`SELECT p.id, p.name, p.price, pt.name as type_name FROM Products as p LEFT JOIN ProductType as pt ON p.type_id = pt.id`, function (err, rows){
         if (err) {
             console.error(err.message);
         } else {

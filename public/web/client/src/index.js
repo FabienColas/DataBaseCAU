@@ -8,6 +8,7 @@ import Home from "./Home/Home"
 import Footer from "./footer/Footer"
 import Login from "./Login/Login"
 import Command from "./Command/Command"
+import Dashboard from "./Dashboard/Dashboard"
 
 
 
@@ -31,6 +32,7 @@ ReactDOM.render(
 			<Route exact path="/" component={Start}/>
 			<Route exact path="/login" component={Login}/>
 			<Route exact path="/command" component={Command}/>
+			<Route exact path="/dashboard" component={Dashboard}/>
 			<Route path="/home" component={Header}/>
 			<Route exact path="/home" component={Home}/>
 			<Route path="/home" component={Footer}/>

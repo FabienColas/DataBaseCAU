@@ -28,6 +28,7 @@ class ItemCard extends Component {
 	for(var i = tab.length - 1; i >= 0; i--) {
 		if(tab[i].id === item.id) {
 		   tab.splice(i, 1);
+		   break;
 		}
 	}
 	sessionStorage.setItem("command", JSON.stringify(tab));

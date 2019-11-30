@@ -11,9 +11,11 @@ class Command extends Component {
     super(props)
     this.state = {
 			dispTicket: false,
+			ticket: null,
         }
 	this.items = JSON.parse(sessionStorage.getItem("command"));
 	this.totalP = 0;
+	this.keylol = 0;
 	console.log("items commands:", this.items);
 	}
 	
@@ -39,8 +41,8 @@ class Command extends Component {
 				return response.json()
 		}).then(json => {
 			console.log('json;',json)
+			this.setState({dispTicket: true, ticket: json.id});
 		})
-		// this.setState({dispTicket: true});
 	}
 
 	totalPrice = () => {
@@ -64,6 +66,12 @@ class Command extends Component {
 		console.log("this.itms:", this.items);
 	}
 
+	getItem = (item) => {
+		this.keylol += 1;
+		return (
+			<ItemCard key={this.keylol} data={item} command={true} update={this.updated}/>
+		)	
+	}
   render() {
     // keys = Object.keys(this.state.widgets.data)
     return (
@@ -72,7 +80,7 @@ class Command extends Component {
 					<div className="command-ticket">
 						Ticket:
 						<div className="ticket-number">
-							#352
+							#{this.state.ticket}
 						</div>
 						<div className="ticket-next" onClick={this.finish}>
 							finish
@@ -90,7 +98,7 @@ class Command extends Component {
 					{
 						this.items.lenght ? <div>Your command is empty</div> :
 						this.items.map((item) => (
-							<ItemCard key={item.id} data={item} command={true} update={this.updated}/>
+							this.getItem(item)
 						))
 					}
 					</div>

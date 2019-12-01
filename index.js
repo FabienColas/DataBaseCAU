@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     next();
 });
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -43,11 +44,12 @@ app.post("/api/createOrder", (req, res, next) => {
         user: req.body.user,
         booth_id: req.body.booth_id,
         takeout: req.body.takeout,
-        total_price: req.body.totalprice,
-        products: req.body.products
+        total_price: req.body.total_price,
+        products: req.body.products,
+        id: 0
     }
 
-    if (data.takeout == "true") {
+    if (data.takeout == true) {
         data.takeout = 1;
     } else {
         data.takeout = 0;
@@ -60,24 +62,20 @@ app.post("/api/createOrder", (req, res, next) => {
             console.error(err.message);
         } else {
             OrderID = this.lastID;
+            data.id = OrderID;
+            var i = 0;
+            while (data.products[i]) {
+                db.run(
+                    "INSERT INTO OrderContent (order_id, product_id) values (?, ?)",
+                    [OrderID, data.products[i].id]);
+                i++;
+            }
             res.json({
                 "message":"success",
                 "id":this.lastID
             })
         }
     });
-    var i = 0;
-    while (data.products[i]) {
-        db.run(
-            "INSERT INTO OrderContent (order_id, product_id) values (?, ?)",
-            [OrderID, data.products[i].id],
-            function (err, result) {
-                if (err) {
-                    res.status(400).json({"error": err})
-                }
-            });
-        i++;
-    }
 })
 
 app.get('/api/getAllProducts', function (req, res) {
@@ -107,19 +105,33 @@ app.get('/api/getAllProductType', function (req, res) {
 })
 
 app.get('/api/getAllCommandsContent', function (req, res) {
-    db.all(`SELECT * FROM OrderContent`, (err, rows) => {
+    var Commands =[];
+    var product;
+    var tmp = [];
+    db.all(`SELECT OC.order_id, O.booth_id, O.confirmed, O.total_price, O.user, 
+    O.takeout, group_concat(P.name, ',') as Products FROM OrderContent as OC LEFT JOIN Orders as
+     O on OC.order_id = O.id LEFT JOIN Products as P on P.id = OC.product_id GROUP BY OC.order_id`, (err, rows) => {
         if (err) {
             console.error(err.message);
         } else {
+            rows.forEach((row) => {
+                product = row.Products;
+                product = product.replace(product, '[{"name":"'+product+'"}]');
+                product = product.replace(',', '"}, {"name":"');
+                product = JSON.parse(product)
+                tmp = {total_price: row.total_price, order_id: row.order_id, user: row.user, products:product, takeout: row.takeout, confirmed: row.confirmed};
+                Commands.push(tmp);
+                //console.log(row.name);
+            });
             res.json({
                 "message":"success",
-                "data":rows
+                "data":Commands
             })
         }
     });
 })
 
-app.post('/api/confirmOrder/:orderId', function (req, res) {
+app.put('/api/confirmOrder/:orderId', function (req, res) {
     var data = {
         booth_id: req.body.booth_id,
         user: req.body.user,
@@ -138,21 +150,7 @@ app.post('/api/confirmOrder/:orderId', function (req, res) {
     });
 })
 
-/*app.post('/api/createOrder', function (req, res) {
-    var data = {
-        booth_id: req.body.name,
-    }
-    db.run(`INSERT INTO Orders (booth_id, confirmed) VALUES (?, '0')`,[data.booth_id], function (err, result) {
-        if (err) {
-            console.error(err.message);
-        } else {
-            res.json({
-                "message":"success",
-                "id":this.lastID
-            })
-        }
-    });
-})*/
+
 
 app.listen(8001, function () {
     console.log('Server listening on port 8001!')

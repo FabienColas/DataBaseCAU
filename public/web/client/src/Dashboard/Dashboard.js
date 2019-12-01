@@ -23,7 +23,7 @@ class Dashboard extends Component {
     //get all commands
     getCommands = () => {
         this.setState({loading: true})
-        fetch("http://localhost:8001/api/getAllCommandsContent/").then(res => res.json()).then(items =>  {
+        fetch("http://localhost:8001/api/getAllCommandsContent").then(res => res.json()).then(items =>  {
 		    console.log("items:", items.data);
             this.setState({items: items.data});
             this.organizeByStatus()
@@ -33,26 +33,26 @@ class Dashboard extends Component {
     organizeByStatus = () => {
         // DECOMMENT THIS CODE when real api call is ready
 
-        // this.state.items.map(item => {
-        //     if (item.status === "ready") {
-        //         this.ready.push(item);
-        //     }
-        //     else if (item.status === "preparing") {
-        //         this.preparing.push(item);
-        //     }
-        // })
+         this.state.items.map(item => {
+             if (item.confirmed === 1) {
+                 this.ready.push(item);
+             }
+             else if (item.confirmed === 0) {
+                 this.preparing.push(item);
+             }
+         })
 
-        this.preparing = [
-            {total_price: 30.23, order_id: 51, user: null, products:[{name:"lol"}, {name:"lol2"}, {name:"burger cheeser"}, {name:"ohohohoho"}] },
-            {total_price: 30.23, order_id: 52, user: null, products:[{name:"lol"}, {name:"lol2"}, {name:"burger cheeser"}] },
+        //this.preparing = [
+            /*{total_price: 30.23, order_id: 51, user: null, products:[{name:"lol"}, {name:"lol2"}, {name:"burger cheeser"}, {name:"ohohohoho"}] },
+            {total_price: 30.23, order_id: 52, user: null, name:[{name:"lol"}, {name:"lol2"}, {name:"burger cheeser"}] },
             {total_price: 35.23, order_id: 53, user: null, products:[{name:"lol"}, {name:"lol2sdfgsdfgsdfgdfgs"}, {name:"burger cheeser"}, {name:"ohohohoho"}] },
             {total_price: 30.23, order_id: 54, user: null, products:[{name:"lol"}, {name:"lol2"}, {name:"burger cheeser"}, {name:"ohohohoho"}] },
-            {total_price: 32.23, order_id: 55, user: "zebi", products:[{name:"lol"}, {name:"lol2fdsfgdfgdf"}, {name:"ohohohoho"}] },
-        ]
-        this.ready = [
-            {total_price: 40.23, order_id: 57, user: null, products:[{name:"lazeazeazazel"}, {name:"lol2"}, {name:"burger cheeser"}, {name:"ohohoghoho"}] },
-            {total_price: 50.23, order_id: 59, user: null, products:[{name:"zebi"}, {name:"lozeeeel2"}, {name:"burger cheeser"}] },
-        ]
+            {total_price: 32.23, order_id: 55, user: "zebi", products:[{name:"lol"}, {name:"lol2fdsfgdfgdf"}, {name:"ohohohoho"}] },*/
+        //]
+        //this.ready = [
+            /*{total_price: 40.23, order_id: 57, user: null, products:[{name:"lazeazeazazel"}, {name:"lol2"}, {name:"burger cheeser"}, {name:"ohohoghoho"}] },
+            {total_price: 50.23, order_id: 59, user: null, products:[{name:"zebi"}, {name:"lozeeeel2"}, {name:"burger cheeser"}] },*/
+        //]
         console.log("ready:", this.ready);
         console.log("preparing:", this.preparing);
         this.setState({loading:false});

@@ -59,7 +59,7 @@ class Command extends Component {
 	}
 
 	finish = () => {
-		sessionStorage.setItem("command", []);
+		sessionStorage.setItem("command", "[]");
 		sessionStorage.setItem("bornId", "");
 		sessionStorage.setItem("takeout", "");
 		this.props.history.push("/");

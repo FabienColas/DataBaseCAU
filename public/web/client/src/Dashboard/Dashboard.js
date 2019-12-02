@@ -59,6 +59,9 @@ class Dashboard extends Component {
     }
 
     confirmOrder = (id) => {
+        this.setState({loading: true})
+        this.preparing = [];
+        this.ready = [];
         //le body peut etre null, c'est juste la confirmation
         fetch('http://localhost:8001/api/confirmOrder/' + id, {
 			method: 'PUT',

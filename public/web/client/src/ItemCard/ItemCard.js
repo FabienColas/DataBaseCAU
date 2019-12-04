@@ -38,7 +38,7 @@ class ItemCard extends Component {
   render() {
     return (
         <div className="item-card">
-            <Image src={this.props.data.name} size='small'/>
+            <Image className="item-img" src={this.props.data.imgUrl} size='small'/>
             <div className="card-info">
                 <div className="ci-name">
 			        {this.props.data.name}

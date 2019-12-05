@@ -91,8 +91,9 @@ class Dashboard extends Component {
                             return (
                                 <div key={item.order_id} className="order-parent">
                                     <div className="order-meta">
-                                        <div className="order-id">id: <span className="order-value">{item.order_id}</span></div>
+                                        <div className="order-id">ticket: <span className="order-value">{item.order_id}</span></div>
                                         <div className="order-user">from: <span className="order-value">{item.user ? item.user : "guest"}</span></div>
+                                        <div className="order-price">takeout: <span className="order-value">{item.takeout ? "yes" : "no"}</span></div>
                                         <div className="order-price">total: <span className="order-value">{item.total_price}</span></div>
                                     </div>
                                     <div className="order-products">Products:
@@ -118,7 +119,7 @@ class Dashboard extends Component {
                             return (
                                 <div key={item.order} className="order-parent">
                                     <div className="order-meta">
-                                        <div className="order-id">id: <span className="order-value">{item.order_id}</span></div>
+                                        <div className="order-id">ticket: <span className="order-value">{item.order_id}</span></div>
                                         <div className="order-user">from: <span className="order-value">{item.user ? item.user : "guest"}</span></div>
                                         <div className="order-price">total: <span className="order-value">{item.total_price}</span></div>
                                     </div>
